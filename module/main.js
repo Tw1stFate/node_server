@@ -37,9 +37,9 @@ async function execShellCmd(cmdStr) {
   return new Promise((resolve, reject) => {
     exec(cmdStr,function(err,stdout,stderr){
       if (err){
-        resolve()
-      } else {
         reject()
+      } else {
+        resolve()
       }
    })
   })
