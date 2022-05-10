@@ -32,8 +32,8 @@ router.post("/save", async (ctx, next) => {
 
 async function saveNewCookies(newCkObj) {
   return new Promise((resolve, reject) => {
-    const db_path = path.join(__dirname, 'tdatabase.sqlite')
-    // const db_path = '/root/ql/db/database.sqlite'
+    // const db_path = path.join(__dirname, 'tdatabase.sqlite')
+    const db_path = '/root/ql/db/database.sqlite'
     const db = new sqlite3.Database(db_path);
     db.serialize(() => {
       db.each("SELECT value FROM Envs", (err, row) => {
