@@ -12,6 +12,7 @@
   "author": "zzz",
   "license": "ISC",
   "dependencies": {
+    "child_process": "^1.0.2",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.1.1",

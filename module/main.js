@@ -6,6 +6,7 @@ var bodyParser = require("koa-bodyparser");
 const { fileURLToPath } = require("url");
 const { resolve } = require("path");
 const sqlite3 = require('sqlite3').verbose();
+const exec=require('child_process').exec;
 
 var app = new Koa();
 var router = new Router();
@@ -26,9 +27,22 @@ router.post("/save", async (ctx, next) => {
     return
   }
   await saveNewCookies(newCkObj)
+  // restart ql
+  await execShellCmd('docker restart qinglong')
   ctx.response.body = 'update success'
 
 });
+
+async function execShellCmd(cmdStr) {
+  return new Promise((resolve, reject) => {
+    exec(str,function(err,stdout,stderr){
+      if (err){
+        resolve()
+      } else {
+        reject()
+      }
+  })
+}
 
 async function saveNewCookies(newCkObj) {
   return new Promise((resolve, reject) => {
