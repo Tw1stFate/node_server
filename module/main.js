@@ -41,6 +41,7 @@ async function execShellCmd(cmdStr) {
       } else {
         reject()
       }
+   })
   })
 }
 
