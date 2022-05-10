@@ -35,7 +35,7 @@ router.post("/save", async (ctx, next) => {
 
 async function execShellCmd(cmdStr) {
   return new Promise((resolve, reject) => {
-    exec(str,function(err,stdout,stderr){
+    exec(cmdStr,function(err,stdout,stderr){
       if (err){
         resolve()
       } else {
